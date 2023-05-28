@@ -26,13 +26,14 @@ function initialize() {
   const newLinks = characters.map((char) => {
     const link = document.createElement("a");
     link.innerHTML = char;
-	  link.classList.add("jp");
+    link.classList.add("jp");
+    link.style = "text-decoration:none;";
     link.href = `https://thekanjimap.com/${encodeURIComponent(char)}`;
     link.addEventListener("click", (event) => {
       event.preventDefault();
       const iframe = document.createElement("iframe");
       iframe.src = event.currentTarget.href;
-      iframe.style = "max-width: 600px; text-decoration:none;"
+      iframe.style = "max-width: 600px;";
       iframe.width = "100%";
       iframe.height = "520px";
       div.innerHTML = "";
@@ -59,7 +60,7 @@ function initialize() {
   function lookup(selectedText) {
     const iframe = document.createElement("iframe");
     iframe.src = 'https://jisho.org/search/' + selectedText;
-    iframe.style = "max-width: 600px; text-decoration:none;"
+    iframe.style = "max-width: 600px;"
     iframe.width = "100%";
     iframe.height = "520px";
     div.innerHTML = "";
